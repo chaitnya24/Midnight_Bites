@@ -1,0 +1,259 @@
+.header{
+    height: 100vh;
+    /* margin: 30px auto; */
+    background: url('/header_img.jpg') no-repeat;
+    /* border-radius: 50px; */
+    background-size: cover;
+    position: relative;
+}
+
+.header-contents{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 20%;
+    left: 6vw;
+    animation: fadeIn 1.5s;
+}
+
+.header-contents h2{
+    font-weight: 500;
+    color: white;
+    font-size: max(4.5vw, 22px);
+}
+
+.header-contents p{
+    color: white;
+    font-size: 17px;
+}
+
+.header-contents button{
+    border: none;
+    color: #747474;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: white;
+    font-size: max(1vw, 13px);
+    border-radius: 50px;
+}
+
+@media (max-width:1050px){
+    .header-contents{
+        max-width: 45%;
+    }
+}
+
+@media (max-width:750px){
+    .header-contents{
+        max-width: 65%;
+    }
+
+    .header-contents p {
+        display: none;
+    }
+
+    .header-contents button{
+        padding: 2vw 4vw;
+    }
+}
+
+.header-navbar{
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    /* box-shadow: 0px 0px 10px #00000050; */
+}
+
+.header-logo-img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.header-navbar-right{
+    display:flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: auto;
+}
+
+.header-signup{
+    background:transparent;
+    font-size: 18px;
+    color: navy;
+    background-color: white;
+    border: 1px solid white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header-login{
+    background:transparent;
+    font-size: 18px;
+    color: white;
+    border: 1px solid transparent;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 20px;
+}
+
+.header-navbar .active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid #49557e;
+}
+
+.header-navbar li{
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.header-cart-img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* border: 2px solid navy; */
+}
+
+.header-profile-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* border: 2px solid navy; */
+}
+
+.header-navbar-search-icon .header-dot{
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: red;
+    border-radius: 5px;
+    top: 3px;
+    right: 3px;
+}
+
+.header-logo-line {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    color: rgb(16, 16, 76);
+    padding: 10px;
+    background-color: white;
+    border-radius: 50px;
+    /* border: 2px solid navy; */
+}
+
+.header-navbar-profile{
+    position: relative;
+}
+
+.header-navbar-profile:hover .header-nav-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #efefff;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid navy;
+    outline: 2px solid white;
+    list-style: none;
+}
+
+.header-nav-profile-dropdown{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+
+.header-nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.header-nav-profile-dropdown img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.header-nav-profile-dropdown li:hover{
+    color: navy;
+}
+
+@media (max-width:1050px) {
+    .header-navbar .header-logo{
+        width: 140px;
+    }
+
+    .header-navbar-right{
+        gap: 30px;
+    }
+
+    .header-navbar-right img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .header-signup {
+        padding: 8px 25px;
+    }
+}
+
+@media (max-width:900px) {
+    .header-navbar .header-logo{
+        width: 120px;
+    }
+
+    .header-navbar-menu{
+        gap: 20px;
+        font-size: 16px;
+    }
+
+    .header-navbar-right{
+        gap: 20px;
+    }
+
+    .header-navbar-right img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .header-signup {
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+
+    .header-login {
+        display: none;
+    }
+}
+
+@media (max-width:750px) {
+    
+
+    .header-navbar-menu{
+        display: none;
+    }
+
+    .header-logo-line h2 {
+        display: none;
+    }
+
+    .header-login{
+        display: none;
+    }
+
+}

@@ -1,0 +1,53 @@
+.delivery-order-page{
+    width: 80%;
+    margin: 40px auto;
+}
+
+.delivery-order-item{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 30px;
+    border: 1px solid navy;
+    padding: 20px;
+    margin: 30px auto;
+    font-size: 14px;
+    color: #505050;
+}
+
+.delivery-order-item-food, .delivery-order-item-name{
+    font-weight: 600;
+}
+
+.delivery-order-item-name{
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.delivery-order-item-address {
+    margin-bottom: 10px;
+}
+
+.delivery-order-item select {
+    background-color: #e5e4ff;
+    border: 1px solid navy;
+    width: max(10vw, 120px);
+    padding: 10px;
+    outline: none;
+}
+
+@media (max-width:1000px) {
+    .delivery-order-item{
+        font-size: 12px;
+        grid-template-columns: 0.5fr 2fr 1fr;
+        padding: 15px 8px;
+    }
+
+    .delivery-order-item select{
+        padding: 5px;
+        font-size: 12px;
+    }
+    .delivery-order-item img {
+        width: 40px;
+    }
+}

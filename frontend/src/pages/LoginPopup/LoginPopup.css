@@ -1,0 +1,108 @@
+.login-popup{
+    position:absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    /* background-color: #00000090; */
+    background: url('/pizza.jpg') no-repeat;
+    background-size: cover;
+    display: grid;
+}
+
+.login-popup-container{
+    place-self: center;
+    width: max(23vw, 330px);
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: fadeIn 0.5s;
+}
+
+.login-container{
+    place-self: center;
+    width: max(23vw, 330px);
+    color: #808080;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: fadeIn 0.5s;
+}
+
+.login-popup-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.login-popup-title img {
+    width: 15px;
+    cursor: pointer;
+}
+
+.login-popup-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-popup-inputs input{
+    outline: none;
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.login-popup-container button {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: navy;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-popup-condition{
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-top: -5px;
+}
+
+.login-popup-condition input{
+    margin-top: 4px;
+}
+
+.login-popup p span {
+    color: navy;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.login-logo-line {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: rgb(16, 16, 76);
+    padding: 10px;
+    background-color: white;
+    border-radius: 50px;
+    /* border: 2px solid navy; */
+}
+
+.login-logo-img{
+    width: 40px;
+    border-radius: 50%;
+}

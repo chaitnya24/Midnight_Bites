@@ -1,0 +1,54 @@
+.delivery-list-page{
+    width: 80%;
+    margin: 40px auto;
+}
+
+.delivery-list-item{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 30px;
+    border: 1px solid navy;
+    padding: 20px;
+    margin: 30px auto;
+    font-size: 14px;
+    color: #505050;
+}
+
+.delivery-list-item-food, .delivery-list-item-name{
+    font-weight: 600;
+}
+
+.delivery-list-item-name{
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.delivery-list-item-address {
+    margin-bottom: 10px;
+}
+
+.delivery-list-item button {
+    background-color: #e5e4ff;
+    border: 1px solid navy;
+    width: max(10vw, 120px);
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width:1000px) {
+    .delivery-list-item{
+        font-size: 12px;
+        grid-template-columns: 0.5fr 2fr 1fr;
+        padding: 15px 8px;
+    }
+
+    .delivery-list-item button{
+        padding: 5px;
+        font-size: 12px;
+    }
+    .delivery-list-item img {
+        width: 40px;
+    }
+}
