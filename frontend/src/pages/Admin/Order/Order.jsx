@@ -9,9 +9,9 @@ import { StoreContext } from '../../../context/StoreContext'
 
 const Order = ({url}) => {
 
-  const [orders, setOrders ] = useState([]);
-
   const { shopName } = useContext(StoreContext);
+
+  let [orders, setOrders ] = useState([]);
 
   const fetchAllOrders = async () => {
     const response = await axios.get(url+"/api/order/list");
@@ -23,19 +23,39 @@ const Order = ({url}) => {
     }
   }
  
-  const invertedOrders = orders.map((_, index) => orders[orders.length - 1 - index]);
+  console.log(shopName);
+
+  const filterOrdersByShop = (orders, shopName) => {
+
+    return orders.map(order => {
+        // Filter items that belong to the current shop
+        const filteredItems = order.items.filter(item => item.shop === shopName);
+  
+        // If no items match the current shop, return null
+        if (filteredItems.length === 0) {
+          return null;
+        }
+  
+        // Return a new order object with only the relevant items
+        return {
+          ...order,
+          items: filteredItems
+        };
+      })
+      .filter(order => order !== null); // Remove null entries
+  };
+  
+  // Call the function to filter orders for the current shop
+  const filteredOrders = filterOrdersByShop(orders, shopName);
+  
+  // Output the result to see what orders and items are visible for shop1
+  console.log(filteredOrders);
+
+
+
+  const invertedOrders = filteredOrders.map((_, index) => orders[orders.length - 1 - index]);
   console.log(invertedOrders);
 
-  const currentShop = shopName; // dynamically set this for each shop
-  const filteredOrders = orders.map(order => {
-  const filteredItems = order.items.filter(item => item.shop === currentShop);
-  
-  // Return the order only if there are items from the current shop
-    return filteredItems.length ? { ...order, items: filteredItems } : null;
-  }).filter(order => order !== null); // Filter out empty orders
-
-  // Now `filteredOrders` will only contain orders relevant to the current shop.
-  console.log(filteredOrders);
 
   useEffect(() => {
     fetchAllOrders();

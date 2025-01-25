@@ -65,7 +65,14 @@ const StoreContextProvider = (props) => {
   const fetchDeliveryList = async () => {
     const response = await axios.get(url+"/api/delivery/list");
     setDeliveryList(response.data.data);
+    // console.log("delivery boy list running...!!!!");
   }
+
+  const fetchShopName = async (token) => {
+    const response = await axios.post(`${url}/api/admin/get`,{},{headers:{token}});
+    setShopName(response.data.shop);
+    console.log(shopName);
+}
 
   const loadCartData = async (token) => {
     const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
@@ -85,10 +92,12 @@ const StoreContextProvider = (props) => {
       await fetchShopList();
       await fetchDeliveryList();
       
+      
       if(localStorage.getItem("token")){
         setToken(localStorage.getItem("token"));
         await loadCartData(localStorage.getItem("token"));
         await fetchOrders(localStorage.getItem("token"));
+        await fetchShopName(localStorage.getItem("token"));
       } 
     }
     loadData();

@@ -8,11 +8,28 @@ import Footer from '../../components/Footer/Footer.jsx';
 
 const PlaceOrder = () => {
 
-    const {getTotalCartAmount, token, food_list, cartItems, url, deliveryList } = useContext(StoreContext)
-    let deliveryName = "";
+    const {getTotalCartAmount, token, food_list, cartItems, url, deliveryList, setDeliveryList } = useContext(StoreContext)
+    // let deliveryName = "";
 
     // const frontend_url = "http://localhost:5173";
-    let filteredDeliveryList = deliveryList.map( (items) => items.name );
+    const filteredDeliveryList = deliveryList.map( (items) => items.name );
+
+    const deliveryBoys = filteredDeliveryList;
+
+    let lastAssignedIndex = -1; // Starts at -1 so the first order will go to index 0 (Boy1)
+    // Variable to keep track of the last assigned delivery boy (index in the array)
+
+    function assignDeliveryBoy() {
+    // Function to assign the next delivery boy
+      // Increment the index to assign the next delivery boy
+      lastAssignedIndex = (lastAssignedIndex + 1) % deliveryBoys.length; // Loops back to 0 after reaching the end
+  
+      // Assign the current delivery boy
+      const assignedBoy = deliveryBoys[lastAssignedIndex];
+  
+      console.log(`Assigned Delivery Boy: ${assignedBoy}`);
+      return assignedBoy;
+  }
 
     const [data, setData] = useState({
       firstName:"",
@@ -36,11 +53,8 @@ const PlaceOrder = () => {
 
       event.preventDefault();
       let orderItems = [];
-      let firstName = "";
-      deliveryName = filteredDeliveryList[0];
-      firstName = filteredDeliveryList[0];
-      filteredDeliveryList.push(firstName);
-      filteredDeliveryList.splice(0,1);
+      let deliveryName = assignDeliveryBoy();
+      console.log(deliveryName);
 
       food_list.map((item) => {
         if (cartItems[item._id]>0 ) {
